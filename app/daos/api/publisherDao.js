@@ -1,7 +1,7 @@
 const con = require('../../config/dbconfig')
 
 const publisherDao = {
-    table: 'actor',
+    table: 'publisher',
 
     create: (req, res)=> {
         if(Object.keys(req.body).length === 0){

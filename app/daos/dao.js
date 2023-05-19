@@ -1,7 +1,7 @@
 const daoCommon = require('./common/daoCommon')
 
 const gameDao = {
-    ...daoCommon, //findAll, findById, countAll,
+    ...daoCommon, 
     ...require('./api/gameDao')
 }
 

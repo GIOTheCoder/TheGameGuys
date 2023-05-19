@@ -1,6 +1,6 @@
 const express = require('express')
 const server = express()
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 8080
 
 // Security
 const helmet = require('helmet')
@@ -22,5 +22,6 @@ server.use(
 
 server.set('view engine', 'ejs')
 
-
-server.listen(PORT, ()=> console.log(`${PORT} is RUNNING.`))
+const router = require('./app/routes/router')
+server.use('/', router)
+server.listen(PORT, ()=> console.log(`PORT ${PORT} is up`))

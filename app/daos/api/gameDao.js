@@ -58,6 +58,33 @@ const gameDao = {
         }
     },
 
+
+    findGames: (res, table) => {
+        con.query(
+            `SELECT game.game_id, game.title, game.image, game.year, game.description, game.rating, game.price, game.category_id, publisher.publisher, game_system.game_system_name 
+            FROM game
+            INNER JOIN publisher
+            ON game.publisher_id = publisher.publisher_id
+            INNER JOIN game_game_system 
+            ON game.game_id = game_game_system.game_id 
+            INNER JOIN game_system 
+            ON game_game_system.game_system_id = game_system.game_system_id;`,
+
+            (error, rows)=> {
+                if(!error){
+                    if(rows.length === 1){
+                        res.json(...rows)
+                    } else {
+                        res.json(rows)
+                    }
+                } else {
+                    console.log('DAO ERROR', error)
+                }
+            }
+        )
+
+    },
+
     findbyRating: (res, rating)=> {
         con.execute(
             'SELECT * FROM game WHERE rating = ?;',

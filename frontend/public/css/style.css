@@ -56,8 +56,12 @@ body {
 
 
 .hero-img {
-    padding-block: 30px;
+    margin-block: 30px;
 }
+
+/* .hero-img:hover {
+    border: 5px var(--main-color) solid;
+} */
 
 
 .best-seller-section {
@@ -167,6 +171,7 @@ body {
 
 .icon {
     color: var(--main-color);
+    margin-right: 5px;
 }
 
 /*Login Page*/
