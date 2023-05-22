@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate, useLocation } from 'react-router-dom'
 import axios from "axios"
 
 
@@ -9,6 +9,8 @@ const SingleItem =()=> {
 
     const [item, setItem] = useState([])
     const params = useParams()
+    let navigate = useNavigate()
+    let location = useLocation()
     const url = `http://localhost:8080/games/${params.id}`
 
     useEffect(()=>{

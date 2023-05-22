@@ -20,7 +20,10 @@ server.use(
     })
 )
 
-server.set('view engine', 'ejs')
+server.post('/contact/create', (req, res)=> {
+    console.log(req.body)
+})
+
 
 const router = require('./app/routes/router')
 server.use('/', router)

@@ -48,3 +48,12 @@ CREATE TABLE game_game_system(
     CONSTRAINT fk_gs_game FOREIGN KEY (game_id) REFERENCES game (game_id),
     CONSTRAINT fk_gs_game_system FOREIGN KEY (game_system_id) REFERENCES game_system (game_system_id)
 );
+
+CREATE TABLE contacts (
+    contacts_id SMALLINT UNSIGNED AUTO_INCREMENT NOT NULL,
+    userName VARCHAR(60) NOT NULL,
+    email VARCHAR(60),
+    comments TINYTEXT,
+    CONSTRAINT pk_contacts PRIMARY KEY(contacts_id)
+
+);

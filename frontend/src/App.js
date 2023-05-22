@@ -7,6 +7,8 @@ import axios from "axios"
 import { useState, useEffect } from "react"
 import SingleItem from "./components/SingleItem"
 import Contact from "./components/Contact"
+import Checkout from "./components/Checkout"
+import Error from "./components/Error"
 
 
 const App =()=> {
@@ -66,7 +68,10 @@ const App =()=> {
                         <Route path='/store' element={<Store props={gameArr} />} />
                         <Route path='/store/product/:id' element={<SingleItem />} />
                         <Route path='/contact' element={<Contact/>} />
+                        <Route path='/checkout' element={<Checkout/>} />
+                        <Route path='*' element={<Error />} />
                 </Routes>
+                
             </div>
             <Footer />
         </div>

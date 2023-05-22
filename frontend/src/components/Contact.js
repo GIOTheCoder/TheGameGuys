@@ -1,4 +1,37 @@
+import { useState, useEffect } from "react"
+import axios, { Axios } from "axios"
+
 const Contact =()=> {
+
+    const [formData, setFormData] = useState({userName: "", email: "", comments: ""})
+
+    const handleChange =(event)=> {
+        setFormData(prevFormData => {
+            return{
+                ...prevFormData,
+                [event.target.name]: event.target.value
+            }
+        })
+    }    
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        axios
+        .post("http://localhost:8080/contacts/create", {
+            userName: formData.userName,
+            email: formData.email,
+            comments: formData.comments
+        })
+        .then((res) => alert("Thanks for the feedback!")) //redirect to thank you page
+        .catch((err) => console.log(err)); //redirect to error page
+
+    }
+
+
+
+    
+    
     return (
         <main className="main">
         <section className="section contact-section">
@@ -48,9 +81,43 @@ const Contact =()=> {
             </div>
 
             <div className="container">
-                <div className="row justify-content-center text-center flex-column pt-4">
+                <div className="row">
+                    <div className="text-center">
+                    <form className="userForm" onSubmit={handleSubmit} method="POST">
+                        <input type="text" 
+                            className="username login-input" 
+                            placeholder="Name" 
+                            name="userName"
+                            value = {formData.userName} 
+                            onChange={handleChange}
+                            required />  
+                        <input type="email" 
+                            className="username login-input" 
+                            placeholder="Email" 
+                            name="email"
+                            value = {formData.email}  
+                            onChange={handleChange}
+                            required />  
+                        <div>
+                        <textarea 
+                            className="comments mb-3" 
+                            name="comments"
+                            placeholder="Comments" 
+                            value = {formData.comments}
+                            rows="4" 
+                            cols="30"
+                            onChange={handleChange}
+                            required />
+
+                        </div>
+
+                    <input className="buy-button" type="submit" value="Submit Form"></input>
+                    </form>
+                    </div>
+                </div>
+                {/* <div className="row justify-content-center text-center flex-column pt-4">
                     <div className="col-12">
-                        
+                        <form action="/formProcess" className="userForm" method="POST"  ></form>
                         <input type="text" className="username login-input text-center" placeholder="Name" name="Name" required />  
                     </div>
                     
@@ -68,7 +135,7 @@ const Contact =()=> {
                     <div className="col-12">
                         <textarea className="textbox" name="textbox" rows="4" cols="30"></textarea>
                     </div>
-                </div>
+                </div> */}
             </div>
         </section>
     </main>
