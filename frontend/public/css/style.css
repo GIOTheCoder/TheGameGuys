@@ -127,6 +127,7 @@ body {
 
 .buy-button {
     padding: 5px 10px;
+    margin-bottom: 0;
     background-color: rgb(243, 243, 243);
     color: rgb(20, 20, 20);
     border: 5px var(--main-color) solid;
@@ -208,3 +209,14 @@ body {
     
     color: var(--main-color);
 }
+
+.error-img {
+    width: 500px;
+    margin-block: 50px;
+}
+
+.figure-img {
+    width: 200px;
+    height: 275px;
+}
+

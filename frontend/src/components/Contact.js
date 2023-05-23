@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react"
 import axios, { Axios } from "axios"
+import { useNavigate } from "react-router-dom"
 
 const Contact =()=> {
 
     const [formData, setFormData] = useState({userName: "", email: "", comments: ""})
+    const navigate = useNavigate()
 
     const handleChange =(event)=> {
         setFormData(prevFormData => {
@@ -23,7 +25,7 @@ const Contact =()=> {
             email: formData.email,
             comments: formData.comments
         })
-        .then((res) => alert("Thanks for the feedback!")) //redirect to thank you page
+        .then(res=> {navigate('/thank-you')}) //redirect to thank you page
         .catch((err) => console.log(err)); //redirect to error page
 
     }

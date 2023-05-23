@@ -9,6 +9,7 @@ import SingleItem from "./components/SingleItem"
 import Contact from "./components/Contact"
 import Checkout from "./components/Checkout"
 import Error from "./components/Error"
+import ThankYou from "./components/ThankYou"
 
 
 const App =()=> {
@@ -69,6 +70,7 @@ const App =()=> {
                         <Route path='/store/product/:id' element={<SingleItem />} />
                         <Route path='/contact' element={<Contact/>} />
                         <Route path='/checkout' element={<Checkout/>} />
+                        <Route path='/thank-you' element={<ThankYou />} />
                         <Route path='*' element={<Error />} />
                 </Routes>
                 

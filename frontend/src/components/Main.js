@@ -6,7 +6,7 @@ import { Outlet, Link } from "react-router-dom"
 const Main =(props)=> {
 
     const arr = props.props
-    console.log(arr)
+    // console.log(arr)
 
 
     const bestSellers = arr.filter(item => {

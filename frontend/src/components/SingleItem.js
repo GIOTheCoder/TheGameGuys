@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { useParams, useNavigate, useLocation } from 'react-router-dom'
+import { Outlet, Link } from "react-router-dom"
 import axios from "axios"
 
 
@@ -20,7 +21,31 @@ const SingleItem =()=> {
             })
     }, [])
 
-    console.log(item)
+    // console.log(item)
+
+    // const submitAddToCart =(e)=> {
+    //     e.preventDefault();
+
+    //     const data = {
+    //         id: item.game_id,
+    //         price: item.price,
+    //         image: item.image,
+    //         title: item.title
+            
+    //     }
+
+    //     // console.log(data)
+
+
+    // }
+
+
+        const props = {
+            id: item.game_id,
+            price: item.price,
+            image: item.image,
+            title: item.title
+        }
 
     return (
     <main className="main">
@@ -39,13 +64,15 @@ const SingleItem =()=> {
 
                     <p className="rating">${item.price} | Rated: {item.rating} | {item.year}</p>
 
-                    <button className="buy-button">Buy Now</button>
+                    <Link to= {`/checkout`} props={props} key={item.game_id}><button className="buy-button">Buy Now</button></Link>
+                    
                 </div>
 
             </div>
         </div>
 
     </div>
+    <Outlet />
 </main>
 
     )
